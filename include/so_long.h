@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   start.c                                            :+:      :+:    :+:   */
+/*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/17 18:56:18 by nkim              #+#    #+#             */
-/*   Updated: 2022/01/18 13:57:16 by nkim             ###   ########.fr       */
+/*   Created: 2022/01/18 20:55:51 by nkim              #+#    #+#             */
+/*   Updated: 2022/01/18 21:01:15 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx.h"
+#ifndef SO_LONG_H
+#define SO_LONG_H
 
-int	main()
-{
-	void	*mlx_ptr;
-	void	*win_ptr;
+#include "../lib/libft42/include/libft42.h"
+#include "../lib/mlx/mlx.h"
 
-	mlx_ptr = mlx_init();
-	win_ptr = mlx_new_window(mlx_ptr, 1500, 500, "window title");
-	mlx_loop(mlx_ptr);
-}
+#endif
