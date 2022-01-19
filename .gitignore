@@ -5,4 +5,7 @@
 *.o
 .vscode/
 .vscode
+
+# Execute File
 a.out
+so_long
