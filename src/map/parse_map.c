@@ -6,7 +6,7 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:50:12 by nkim              #+#    #+#             */
-/*   Updated: 2022/01/22 18:18:47 by nkim             ###   ########.fr       */
+/*   Updated: 2022/01/22 20:17:04 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@ void initMap(t_map *map, char *line) {
 	map->cols = ft_strlen(line);
 	map->rows = 1;
 	map->map[0] = line;
+	map->p_cnt = 0;
+	map->c_cnt = 0;
+	map->e_cnt = 0;
 }
 
 void readMap(t_game *game, char *fileName) {
