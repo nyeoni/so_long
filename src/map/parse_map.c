@@ -6,13 +6,13 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:50:12 by nkim              #+#    #+#             */
-/*   Updated: 2022/01/22 20:17:04 by nkim             ###   ########.fr       */
+/*   Updated: 2022/01/23 19:06:24 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void initMap(t_map *map, char *line) {
+void init_map(t_map *map, char *line) {
 	map->map = (char **)malloc(sizeof(char *) * 1);
 	map->cols = ft_strlen(line);
 	map->rows = 1;
@@ -22,34 +22,34 @@ void initMap(t_map *map, char *line) {
 	map->e_cnt = 0;
 }
 
-void readMap(t_game *game, char *fileName) {
+void read_map(t_game *game, char *fileName) {
 	int fd;
 	char *line;
 	t_map *map;
 
 	fd = open(fileName, O_RDONLY);
 	if (fd == -1)
-		throwError("FileError : error when open file");
-	line = get_line(fd);
+		throw_error("FileError : error when open file");
+	line = ft_get_line(fd);
 	map = &game->map;
 	if (line)
-		initMap(map, line);
+		init_map(map, line);
 	else
-		throwError("EmptyFileError : file is empty!");
-	line = get_line(fd);
+		throw_error("EmptyFileError : file is empty!");
+	line = ft_get_line(fd);
 	while (line)
 	{
-		charactersValidate(line);
-		lengthValidate(line, game->map.cols);
+		valid_characters(line);
+		valid_length(line, game->map.cols);
 		map->rows++;
 		game->map.map = (char **)ft_ptr_realloc(game->map.map, map->rows - 1, map->rows);
 		game->map.map[map->rows - 1] = line;
-		line = get_line(fd);
+		line = ft_get_line(fd);
 	}
 	close(fd);
 }
 
-void countComponent(t_map *map)
+void count_component(t_map *map)
 {
 	int row_idx;
 	int idx;
@@ -57,7 +57,7 @@ void countComponent(t_map *map)
 
 	row_idx = 0;
 	while (row_idx < map->rows) {
-		wallValidate(map, row_idx);
+		valid_wall(map, row_idx);
 		row = map->map[row_idx];
 		idx = 0;
 		while (idx < map->cols)
@@ -72,13 +72,13 @@ void countComponent(t_map *map)
 		}
 		row_idx++;
 	}
-	leastValidate(map);
+	valid_least(map);
 }
 
-void parseMap(t_game *game, char *fileName) {
-	extensionValidate(fileName);
-	readMap(game, fileName);
-	countComponent(&game->map);
+void parse_map(t_game *game, char *fileName) {
+	valid_extension(fileName);
+	read_map(game, fileName);
+	count_component(&game->map);
 
 	// check map parsing
 	printf("cols : %d\n", game->map.cols);

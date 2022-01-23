@@ -6,13 +6,13 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:18:15 by nkim              #+#    #+#             */
-/*   Updated: 2022/01/22 18:06:33 by nkim             ###   ########.fr       */
+/*   Updated: 2022/01/23 18:19:24 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	extensionValidate(char *fileName) {
+void	valid_extension(char *fileName) {
 	char *extension;
 	int diff;
 
@@ -20,34 +20,34 @@ void	extensionValidate(char *fileName) {
 	diff = ft_strncmp(extension, ".ber", 4);
 
 	if (diff)
-		throwError("ExtensionError : file extension is not .ber file!");
+		throw_error("ExtensionError : file extension is not .ber file!");
 }
 
 /* This function validate possible characters : 0, 1, C, E, P */
-void	 charactersValidate(char *line) {
+void	 valid_characters(char *line) {
 	int idx;
 
 	idx = 0;
 	while (line[idx]) {
 		if (!(line[idx] == '0' || line[idx] == '1'
 		|| line[idx] == 'C' || line[idx] == 'E' || line[idx] == 'P'))
-			throwError("CharactersError : not allowed characters in map file!");
+			throw_error("CharactersError : not allowed characters in map file!");
 		idx++;
 	}
 	return;
 }
 
-void	lengthValidate(char *src, int length) {
+void	valid_length(char *src, int length) {
 	int src_len;
 
 	src_len = ft_strlen(src);
 	if (src_len == length)
 		return;
 	else
-		throwError("LengthError : map file row length is different");
+		throw_error("LengthError : map file row length is different");
 }
 
-void	wallValidate(t_map *map, int row_idx) {
+void	valid_wall(t_map *map, int row_idx) {
 	char *row;
 	int idx;
 
@@ -58,22 +58,22 @@ void	wallValidate(t_map *map, int row_idx) {
 		while (idx < map->cols)
 		{
 			if (row[idx] != '1')
-				throwError("WallError : map must be surrounded by walls");
+				throw_error("WallError : map must be surrounded by walls");
 			idx++;
 		}
 	}
 	else
 	{
 		if (!(row[0] == '1' && row[map->cols - 1] == '1'))
-			throwError("WallError : map must be surrounded by walls");
+			throw_error("WallError : map must be surrounded by walls");
 	}
 }
 
-void	leastValidate(t_map *map) {
+void	valid_least(t_map *map) {
 	if (map->p_cnt != 1)
-		throwError("ComponentError : map must have one starting position");
+		throw_error("ComponentError : map must have one starting position");
 	else if (map->c_cnt < 1)
-		throwError("ComponentError: map must have at least one collector");
+		throw_error("ComponentError: map must have at least one collector");
 	else if (map->e_cnt < 1)
-		throwError("ComponentError : map must have at least one exit");
+		throw_error("ComponentError : map must have at least one exit");
 }
