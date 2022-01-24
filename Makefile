@@ -6,7 +6,7 @@
 #    By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/20 17:00:14 by nkim              #+#    #+#              #
-#    Updated: 2022/01/23 19:05:34 by nkim             ###   ########.fr        #
+#    Updated: 2022/01/23 23:23:10 by nkim             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ PATH_GAME 				= $(SRCS_DIR)game/
 SRCS					= $(SRCS_DIR)main.c \
 							$(PATH_ERROR)error.c \
 							$(PATH_MAP)parse_map.c $(PATH_MAP)validate_map.c \
-							$(PATH_UTILS)ft_ptr_realloc.c $(PATH_UTILS)ft_get_line.c $(PATH_UTILS)ft_make_xpm_img\
+							$(PATH_UTILS)ft_ptr_realloc.c $(PATH_UTILS)ft_get_line.c $(PATH_UTILS)ft_make_xpm_img.c \
 							$(PATH_GAME)init_game.c
 OBJS					= $(SRCS:.c=.o)
 
