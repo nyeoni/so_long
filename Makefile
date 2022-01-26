@@ -6,7 +6,7 @@
 #    By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/20 17:00:14 by nkim              #+#    #+#              #
-#    Updated: 2022/01/23 23:23:10 by nkim             ###   ########.fr        #
+#    Updated: 2022/01/26 16:32:12 by nkim             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,8 +37,9 @@ PATH_GAME 				= $(SRCS_DIR)game/
 SRCS					= $(SRCS_DIR)main.c \
 							$(PATH_ERROR)error.c \
 							$(PATH_MAP)parse_map.c $(PATH_MAP)validate_map.c \
-							$(PATH_UTILS)ft_ptr_realloc.c $(PATH_UTILS)ft_get_line.c $(PATH_UTILS)ft_make_xpm_img.c \
-							$(PATH_GAME)init_game.c
+							$(PATH_UTILS)ft_ptr_realloc.c $(PATH_UTILS)ft_get_line.c $(PATH_UTILS)ft_make_xpm_img.c $(PATH_UTILS)ft_make_iterable_sprites.c \
+							$(PATH_UTILS)ft_lst_component.c \
+							$(PATH_GAME)init_game.c $(PATH_GAME)draw_game.c
 OBJS					= $(SRCS:.c=.o)
 
 .c.o :
@@ -67,12 +68,12 @@ bonus_re : fclean bonus
 test :
 	make -C $(LIBFT42_DIR)
 	make -C $(MLX_DIR)
-	$(CC) -g -o $(NAME) $(SRCS) $(LIBFT42_FLAGS) -I $(INCS_DIR) -L $(MLX_DIR) $(MLX_FLAGS)
+	$(CC) -g3 -o $(NAME) $(SRCS) $(LIBFT42_FLAGS) -I $(INCS_DIR) -L $(MLX_DIR) $(MLX_FLAGS)
 
 leak :
 	make -C $(LIBFT42_DIR)
 	make -C $(MLX_DIR)
-	$(CC) -g -fsanitize=address -o $(NAME) $(SRCS) $(LIBFT42_FLAGS) -I $(INCS_DIR) -L $(MLX_DIR) $(MLX_FLAGS)
+	$(CC) -g3 -fsanitize=address -o $(NAME) $(SRCS) $(LIBFT42_FLAGS) -I $(INCS_DIR) -L $(MLX_DIR) $(MLX_FLAGS)
 
 norm :
 	norminette $(SRCS) $(INCS_DIR)*.h
