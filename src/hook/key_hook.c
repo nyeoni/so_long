@@ -6,13 +6,13 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 18:07:36 by nkim              #+#    #+#             */
-/*   Updated: 2022/01/29 19:14:05 by nkim             ###   ########.fr       */
+/*   Updated: 2022/01/29 23:42:50 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void move_key_hook(int keycode, t_game *game)
+void	move_key_hook(int keycode, t_game *game)
 {
 	if (keycode == KEY_D)
 	{
@@ -41,13 +41,13 @@ void move_key_hook(int keycode, t_game *game)
 	printf("STEP : %d\n", ++(game->step));
 }
 
-int key_hook(int keycode, t_game *game)
+int	key_hook(int keycode, t_game *game)
 {
 	if (game->move_status == NONE
 		&& (keycode == KEY_A || keycode == KEY_D
-		|| keycode == KEY_S || keycode == KEY_W))
+			|| keycode == KEY_S || keycode == KEY_W))
 		move_key_hook(keycode, game);
 	if (keycode == KEY_ESC)
 		close_game(game);
-	return 1;
+	return (1);
 }

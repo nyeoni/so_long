@@ -6,7 +6,7 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 16:19:18 by nkim              #+#    #+#             */
-/*   Updated: 2022/01/28 17:30:03 by nkim             ###   ########.fr       */
+/*   Updated: 2022/01/29 23:54:04 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ void	ft_lstc_add_back(t_component **lst, t_component *new)
 	ft_lstc_last(*lst)->next = new;
 }
 
-void ft_lstc_delete(t_component **lst, int x, int y)
+void	ft_lstc_delete(t_component **lst, int x, int y)
 {
-	t_component *tmp;
-	t_component *target;
+	t_component	*tmp;
+	t_component	*target;
 
 	tmp = *lst;
 	if (tmp && tmp->x == x && tmp->y == y)
@@ -42,7 +42,7 @@ void ft_lstc_delete(t_component **lst, int x, int y)
 		*lst = tmp->next;
 		free(tmp);
 		tmp = NULL;
-		return;
+		return ;
 	}
 	while (tmp && tmp->next)
 	{
@@ -57,9 +57,9 @@ void ft_lstc_delete(t_component **lst, int x, int y)
 	}
 }
 
-int ft_lstc_add(t_component **lst, int x, int y)
+int	ft_lstc_add(t_component **lst, int x, int y)
 {
-	t_component *new;
+	t_component	*new;
 
 	new = (t_component *)malloc(sizeof(t_component));
 	if (!new)

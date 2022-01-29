@@ -6,13 +6,14 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:50:12 by nkim              #+#    #+#             */
-/*   Updated: 2022/01/29 19:29:36 by nkim             ###   ########.fr       */
+/*   Updated: 2022/01/29 23:45:24 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void init_map(t_map *map, char *line) {
+void	init_map(t_map *map, char *line)
+{
 	map->map = (char **)malloc(sizeof(char *) * 1);
 	map->cols = ft_strlen(line);
 	map->rows = 1;
@@ -22,10 +23,11 @@ void init_map(t_map *map, char *line) {
 	map->e_cnt = 0;
 }
 
-void read_map(t_game *game, char *fileName) {
-	int fd;
-	char *line;
-	t_map *map;
+void	read_map(t_game *game, char *fileName)
+{
+	int		fd;
+	char	*line;
+	t_map	*map;
 
 	fd = open(fileName, O_RDONLY);
 	if (fd == -1)
@@ -42,21 +44,23 @@ void read_map(t_game *game, char *fileName) {
 		valid_characters(line);
 		valid_length(line, game->map.cols);
 		map->rows++;
-		game->map.map = (char **)ft_ptr_realloc(game->map.map, map->rows - 1, map->rows);
+		game->map.map = (char **)ft_ptr_realloc(game->map.map, \
+									map->rows - 1, map->rows);
 		game->map.map[map->rows - 1] = line;
 		line = ft_get_line(fd);
 	}
 	close(fd);
 }
 
-void count_component(t_map *map)
+void	count_component(t_map *map)
 {
-	int row_idx;
-	int idx;
-	char *row;
+	int		row_idx;
+	int		idx;
+	char	*row;
 
 	row_idx = 0;
-	while (row_idx < map->rows) {
+	while (row_idx < map->rows)
+	{
 		valid_wall(map, row_idx);
 		row = map->map[row_idx];
 		idx = 0;
@@ -75,7 +79,8 @@ void count_component(t_map *map)
 	valid_least(map);
 }
 
-void parse_map(t_game *game, char *fileName) {
+void	parse_map(t_game *game, char *fileName)
+{
 	valid_extension(fileName);
 	read_map(game, fileName);
 	count_component(&game->map);

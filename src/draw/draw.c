@@ -6,34 +6,33 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 15:52:11 by nkim              #+#    #+#             */
-/*   Updated: 2022/01/29 17:57:15 by nkim             ###   ########.fr       */
+/*   Updated: 2022/01/29 23:29:06 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void draw_exit(t_game *game) {
-	t_map map;
-	char *line;
-	int row_idx;
-	int col_idx;
+void	draw_exit(t_game *game)
+{
+	char	*line;
+	int		row_idx;
+	int		col_idx;
 
-	map = game->map;
 	row_idx = 0;
-	while (row_idx < map.rows)
+	while (row_idx < game->map.rows)
 	{
-		line = map.map[row_idx];
+		line = game->map.map[row_idx];
 		col_idx = 0;
-		while (col_idx < map.cols)
+		while (col_idx < game->map.cols)
 		{
 			if (line[col_idx] == 'E')
 			{
 				if (game->collect.collections)
-					mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
-						game->tiles.exit, col_idx * TILE_SIZE, row_idx * TILE_SIZE);
+					ft_put_img(game, game->tiles.exit,
+						col_idx * TILE_SIZE, row_idx * TILE_SIZE);
 				else
-					mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
-						game->tiles.open_exit, col_idx * TILE_SIZE, row_idx * TILE_SIZE);
+					ft_put_img(game, game->tiles.open_exit,
+						col_idx * TILE_SIZE, row_idx * TILE_SIZE);
 			}
 			col_idx++;
 		}
@@ -41,11 +40,12 @@ void draw_exit(t_game *game) {
 	}
 }
 
-void draw_tiles(t_game *game) {
-	t_map map;
-	char *line;
-	int row_idx;
-	int col_idx;
+void	draw_tiles(t_game *game)
+{
+	t_map	map;
+	char	*line;
+	int		row_idx;
+	int		col_idx;
 
 	map = game->map;
 	row_idx = 0;
@@ -56,21 +56,22 @@ void draw_tiles(t_game *game) {
 		while (col_idx < map.cols)
 		{
 			if (line[col_idx] == '1')
-				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
-						game->tiles.wall, col_idx * TILE_SIZE, row_idx * TILE_SIZE);
+				ft_put_img(game, game->tiles.wall,
+					col_idx * TILE_SIZE, row_idx * TILE_SIZE);
 			else
-				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
-						game->tiles.ground, col_idx * TILE_SIZE, row_idx * TILE_SIZE);
+				ft_put_img(game, game->tiles.ground,
+					col_idx * TILE_SIZE, row_idx * TILE_SIZE);
 			col_idx++;
 		}
 		row_idx++;
 	}
 }
 
-void draw_sprites(t_game *game) {
-	char *line;
-	int row_idx;
-	int col_idx;
+void	draw_sprites(t_game *game)
+{
+	char	*line;
+	int		row_idx;
+	int		col_idx;
 
 	row_idx = 0;
 	while (row_idx < game->map.rows)
@@ -79,28 +80,29 @@ void draw_sprites(t_game *game) {
 		col_idx = 0;
 		while (col_idx < game->map.cols)
 		{
-			if (line[col_idx] == 'P'){
+			if (line[col_idx] == 'P')
+			{
 				game->player.x = col_idx * TILE_SIZE;
 				game->player.y = row_idx * TILE_SIZE;
-				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
-							game->player.sprites->img, game->player.x, game->player.y);
+				ft_put_img(game, game->player.sprites->img,
+					game->player.x, game->player.y);
 			}
 			else if (line[col_idx] == 'C')
 				ft_lstc_add(&game->collect.collections,
-							col_idx * TILE_SIZE, row_idx * TILE_SIZE);
+					col_idx * TILE_SIZE, row_idx * TILE_SIZE);
 			col_idx++;
 		}
 		row_idx++;
 	}
 }
 
-void draw_init(t_game *game)
+void	draw_init(t_game *game)
 {
 	draw_tiles(game);
 	draw_animate_collect(game);
 	draw_exit(game);
 	game->player.sprites = game->player.initial;
-	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
-			game->player.sprites->img, game->player.x, game->player.y);
+	ft_put_img(game, game->player.sprites->img,
+		game->player.x, game->player.y);
 	game->move_status = NONE;
 }
