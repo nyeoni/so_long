@@ -6,7 +6,7 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 16:50:10 by nkim              #+#    #+#             */
-/*   Updated: 2022/01/23 18:23:36 by nkim             ###   ########.fr       */
+/*   Updated: 2022/01/29 20:13:12 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void throw_error(char *message) {
 	// TODO : 나도 여기에 색 넣을꼬얌 ㅎㅎ
-	perror(message);
+	ft_putstr_fd("\033[31mError\n\033[0m", 2);
+	ft_putstr_fd(message, 2);
 	exit(EXIT_FAILURE);
 }
