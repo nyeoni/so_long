@@ -6,7 +6,7 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:50:12 by nkim              #+#    #+#             */
-/*   Updated: 2022/01/23 19:06:24 by nkim             ###   ########.fr       */
+/*   Updated: 2022/01/29 19:29:36 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,17 +79,4 @@ void parse_map(t_game *game, char *fileName) {
 	valid_extension(fileName);
 	read_map(game, fileName);
 	count_component(&game->map);
-
-	// check map parsing
-	printf("cols : %d\n", game->map.cols);
-	printf("rows : %d\n", game->map.rows);
-	printf("p_cnt : %d\n", game->map.p_cnt);
-	printf("c_cnt : %d\n", game->map.c_cnt);
-	printf("e_cnt : %d\n", game->map.e_cnt);
-	int i = 0;
-	while (i < game->map.rows)
-	{
-		printf("%s\n", game->map.map[i]);
-		i++;
-	}
 }

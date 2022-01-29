@@ -6,7 +6,7 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 16:19:18 by nkim              #+#    #+#             */
-/*   Updated: 2022/01/26 16:57:51 by nkim             ###   ########.fr       */
+/*   Updated: 2022/01/28 17:30:03 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,38 +31,42 @@ void	ft_lstc_add_back(t_component **lst, t_component *new)
 	ft_lstc_last(*lst)->next = new;
 }
 
-t_component	*ft_lstc_new(int x, int y)
+void ft_lstc_delete(t_component **lst, int x, int y)
 {
-	t_component	*res;
+	t_component *tmp;
+	t_component *target;
 
-	res = (t_component *)malloc(sizeof(t_component));
-	if (!res)
-		return (0);
-	res->x = x;
-	res->y = y;
-	res->next = NULL;
-	return (res);
-}
-
-int	ft_lstc_size(t_component *lst)
-{
-	int	cnt;
-
-	if (!lst)
-		return (0);
-	cnt = 1;
-	while (lst->next)
+	tmp = *lst;
+	if (tmp && tmp->x == x && tmp->y == y)
 	{
-		cnt++;
-		lst = lst->next;
+		*lst = tmp->next;
+		free(tmp);
+		tmp = NULL;
+		return;
 	}
-	return (cnt);
+	while (tmp && tmp->next)
+	{
+		if (tmp->next->x == x && tmp->next->y == y)
+		{
+			target = tmp->next;
+			tmp->next = tmp->next->next;
+			free(target);
+			target = NULL;
+		}
+		tmp = tmp->next;
+	}
 }
 
-void ft_lstc_add(t_component **lst, int x, int y)
+int ft_lstc_add(t_component **lst, int x, int y)
 {
 	t_component *new;
 
-	new = ft_lstc_new(x, y);
+	new = (t_component *)malloc(sizeof(t_component));
+	if (!new)
+		return (0);
+	new->x = x;
+	new->y = y;
+	new->next = NULL;
 	ft_lstc_add_back(lst, new);
+	return (1);
 }
