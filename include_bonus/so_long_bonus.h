@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 20:55:51 by nkim              #+#    #+#             */
-/*   Updated: 2022/01/29 23:19:56 by nkim             ###   ########.fr       */
+/*   Updated: 2022/01/30 01:21:17 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 // Common Lib
 # include <fcntl.h>
@@ -79,10 +79,18 @@ typedef struct s_collect
 	t_sprites			*sprites;
 }						t_collect;
 
+typedef struct s_enemy
+{
+	t_component			*enemies;
+	t_sprites			*sprites;
+}						t_enemy;
+
+
 typedef struct s_tiles
 {
 	void				*wall;
 	void				*ground;
+	void				*step;
 	void				*exit;
 	void				*open_exit;
 }						t_tiles;
@@ -108,6 +116,7 @@ typedef struct s_game
 	t_tiles				tiles;
 	t_player			player;
 	t_collect			collect;
+	t_enemy				enemy;
 }						t_game;
 
 // Directory functions
@@ -131,10 +140,8 @@ void					ft_put_img(t_game *game, void *img, int x, int y);
 void					*ft_ptr_realloc(void *buf, int before_size, \
 							int after_size);
 void					*ft_make_xpm_img(t_game *game, char *fileName);
-void					ft_make_iterable_sprites(t_game *game, \
-								t_sprites **sprites, \
-								char *imgName, \
-								int cnt);
+void					ft_make_iterable_sprites(t_game *game,
+							t_sprites **sprites, char *imgName, int cnt);
 char					*ft_get_line(int fd);
 
 void					ft_lstc_add_back(t_component **lst, t_component *new);
@@ -149,13 +156,16 @@ int						close_game(t_game *game);
 // DRAW DIR
 // draw.c
 void					draw_tiles(t_game *game);
+void					draw_step(t_game *game);
 void					draw_sprites(t_game *game);
 void					draw_exit(t_game *game);
+void					draw_enemies(t_game *game);
 void					draw_init(t_game *game);
 
 // draw_animate.c
 void					draw_animate_player(t_game *game);
 void					draw_animate_collect(t_game *game);
+void					draw_animate_enemy(t_game *game);
 
 // HOOK DIR
 // loop_hook.c
@@ -171,6 +181,6 @@ void					handle_location(t_game *game, int offsetX, int offsetY);
 
 // animate
 void					animate_sprites(t_game *game, \
-										t_sprites **sprites, int x, int y);
+							t_sprites **sprites, int x, int y);
 
 #endif
