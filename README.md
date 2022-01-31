@@ -5,10 +5,10 @@
 This project is a small 2D game with minilibx. You'll learn about textures, sprites and tiles.
 
 ## Mandatory
-<img width="50%" src="https://user-images.githubusercontent.com/51353146/151831986-8641c0ad-96d7-431e-8564-6e08a32ce80e.png" />
+<img width="54%" src="https://user-images.githubusercontent.com/51353146/151835904-a5e5e651-994d-4aca-a1f1-27edda1edbc1.png" />
 
 ## Bonus
-<img width="50%" src="https://user-images.githubusercontent.com/51353146/151833524-0b2a5479-539c-4583-9c64-80208d492f46.png" />
+<img width="54%" src="https://user-images.githubusercontent.com/51353146/151833524-0b2a5479-539c-4583-9c64-80208d492f46.png" />
 
 ## How play the game
 To play this game you can use any map of your choice as long follow the following rues:
