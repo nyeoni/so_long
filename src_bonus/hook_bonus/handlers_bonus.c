@@ -6,7 +6,7 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 17:59:15 by nkim              #+#    #+#             */
-/*   Updated: 2022/01/30 00:19:24 by nkim             ###   ########.fr       */
+/*   Updated: 2022/01/30 15:27:55 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,27 @@ void	handle_exit(t_game *game, int offsetX, int offsetY)
 	}
 }
 
+void	handle_enemy(t_game *game, int offsetX, int offsetY)
+{
+	char	**map;
+	int		row;
+	int		col;
+
+	map = game->map.map;
+	row = (game->player.y + offsetY);
+	col = (game->player.x + offsetX);
+	if (!(row % TILE_SIZE) && !(col % TILE_SIZE)
+		&& map[row / TILE_SIZE][col / TILE_SIZE] == 'F')
+	{
+		printf("\033[1;31m== FAIL!! ==\033[0m\n");
+		close_game(game);
+	}
+}
+
 void	handle_location(t_game *game, int offsetX, int offsetY)
 {
 	handle_wall(game, offsetX, offsetY);
 	handle_collect(game, offsetX, offsetY);
 	handle_exit(game, offsetX, offsetY);
+	handle_enemy(game, offsetX, offsetY);
 }
