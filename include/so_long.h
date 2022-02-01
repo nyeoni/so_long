@@ -6,7 +6,7 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 20:55:51 by nkim              #+#    #+#             */
-/*   Updated: 2022/01/29 23:19:56 by nkim             ###   ########.fr       */
+/*   Updated: 2022/02/01 14:16:03 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <stdlib.h>
 
 // My Lib
-# include "../lib/libft42/include/libft42.h"
+# include "../lib/libft/include/libft42.h"
 # include "../lib/mlx/mlx.h"
 
 # define TRUE 1

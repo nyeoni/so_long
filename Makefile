@@ -6,7 +6,7 @@
 #    By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/20 17:00:14 by nkim              #+#    #+#              #
-#    Updated: 2022/01/30 01:25:04 by nkim             ###   ########.fr        #
+#    Updated: 2022/02/01 14:19:47 by nkim             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,11 @@ NAME_BONUS				= so_long_bonus
 CC						= gcc
 CFLAGS					= -Wall -Werror -Wextra
 AR						= ar rcs
-RM						= rm -f
+RM						= rm -rf
 
-LIBFT42_DIR				= ./lib/libft42/
-LIBFT42_FLAGS			= -L ./$(LIBFT42_DIR) -lft42
-LIBFT42_FILE			= $(LIBFT42_DIR)libft42.a
+LIBFT42_DIR				= ./lib/libft/
+LIBFT42_FLAGS			= -L ./$(LIBFT42_DIR) -lft
+LIBFT42_FILE			= $(LIBFT42_DIR)libft.a
 
 MLX_DIR					= ./lib/mlx/
 
