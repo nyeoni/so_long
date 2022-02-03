@@ -6,6 +6,10 @@ This project is a small 2D game with minilibx. You'll learn about textures, spri
 
 ![image](https://user-images.githubusercontent.com/51353146/152220218-a4bda6e5-9f31-4fff-9816-95958ebfff07.png)
 
+## Preview
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/51353146/152325175-0d3510c5-3b9e-47c1-a696-f9528e86f96e.gif)
+
+
 ## How play the game
 To play this game you can use any map of your choice as long follow the following rues:
 
