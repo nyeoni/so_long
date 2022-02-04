@@ -6,7 +6,7 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 20:55:51 by nkim              #+#    #+#             */
-/*   Updated: 2022/02/01 14:15:32 by nkim             ###   ########.fr       */
+/*   Updated: 2022/02/04 15:06:43 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ typedef struct s_enemy
 	t_component			*enemies;
 	t_sprites			*sprites;
 }						t_enemy;
-
 
 typedef struct s_tiles
 {

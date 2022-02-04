@@ -6,7 +6,7 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 17:50:07 by nkim              #+#    #+#             */
-/*   Updated: 2022/01/30 01:29:09 by nkim             ###   ########.fr       */
+/*   Updated: 2022/02/04 15:04:09 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ void	draw_animate_player(t_game *game)
 	game->offset += step;
 	if (game->offset > MAX_OFFSET)
 		game->offset = 0;
-	ft_put_img(game, game->player.sprites->img,
-		game->player.x, game->player.y);
+	ft_put_img(game, game->player.sprites->img, game->player.x, game->player.y);
 	game->player.sprites = game->player.sprites->next;
 }
 
@@ -40,15 +39,13 @@ void	draw_animate_collect(t_game *game)
 	collections = game->collect.collections;
 	while (collections)
 	{
-		ft_put_img(game, game->tiles.ground,
-			collections->x, collections->y);
-		ft_put_img(game, game->collect.sprites->img,
-			collections->x, collections->y);
+		ft_put_img(game, game->tiles.ground, collections->x, collections->y);
+		ft_put_img(
+			game, game->collect.sprites->img, collections->x, collections->y);
 		collections = collections->next;
 	}
 	game->collect.sprites = game->collect.sprites->next;
 }
-
 
 void	draw_animate_enemy(t_game *game)
 {
@@ -57,10 +54,8 @@ void	draw_animate_enemy(t_game *game)
 	enemies = game->enemy.enemies;
 	while (enemies)
 	{
-		ft_put_img(game, game->tiles.ground,
-			enemies->x, enemies->y);
-		ft_put_img(game, game->enemy.sprites->img,
-			enemies->x, enemies->y);
+		ft_put_img(game, game->tiles.ground, enemies->x, enemies->y);
+		ft_put_img(game, game->enemy.sprites->img, enemies->x, enemies->y);
 		enemies = enemies->next;
 	}
 	game->enemy.sprites = game->enemy.sprites->next;

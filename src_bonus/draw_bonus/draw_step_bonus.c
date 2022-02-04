@@ -6,7 +6,7 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 00:47:17 by nkim              #+#    #+#             */
-/*   Updated: 2022/01/30 00:47:33 by nkim             ###   ########.fr       */
+/*   Updated: 2022/02/04 15:04:33 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	draw_step(t_game *game)
 {
-	char *step;
+	char	*step;
 
 	step = ft_itoa(game->step);
 	ft_put_img(game, game->tiles.step, 0, 0);
