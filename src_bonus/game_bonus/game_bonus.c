@@ -6,7 +6,7 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 22:18:35 by nkim              #+#    #+#             */
-/*   Updated: 2022/01/30 01:21:31 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/02 18:41:43 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,12 @@ void	init_window(t_game *game)
 	x = game->map.cols;
 	y = game->map.rows;
 	game->mlx_ptr = mlx_init();
-	game->win_ptr = mlx_new_window(game->mlx_ptr, \
-						TILE_SIZE * x, TILE_SIZE * y, "KIRBY");
+	game->win_ptr = mlx_new_window(game->mlx_ptr, TILE_SIZE * x, TILE_SIZE * y,
+			"KIRBY");
 	game->move_status = NONE;
 	game->offset = 0;
 	game->collect.collections = NULL;
+	game->enemy.enemies = NULL;
 	game->step = 0;
 }
 

@@ -9,3 +9,7 @@
 # Execute File
 a.out
 *.dSYM
+so_long
+so_long_bonus
+
+*.a
