@@ -19,7 +19,7 @@ INCS = .
 
 AFLAGS = rus
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 SRCS = ft_printf.c print_number.c print_string.c utils.c
@@ -28,29 +28,29 @@ OBJS = $(SRCS:.c=.o)
 all : $(NAME)
 
 clean :
-	rm -rf $(OBJS)
-	make clean -C $(LIBFT_DIR)
+	@rm -rf $(OBJS)
+	@make clean -C $(LIBFT_DIR)
 
 fclean : clean
-	rm -rf $(NAME)
-	make fclean -C $(LIBFT_DIR)
+	@rm -rf $(NAME)
+	@make fclean -C $(LIBFT_DIR)
 
 re : fclean all
 
 $(NAME) : $(OBJS) $(LIBFT)
-	cp $(LIBFT_LIB) $@
-	ar $(AFLAGS) $@ $(OBJS)
+	@cp $(LIBFT_LIB) $@
+	@ar $(AFLAGS) $@ $(OBJS)
 
 # Libft
 $(LIBFT) : $(LIBFT_LIB)
 
 $(LIBFT_LIB) :
-	make -C $(LIBFT_DIR)
+	@make -C $(LIBFT_DIR)
 
 %.o : %.c
-	$(CC) $(CFLAGS) -c $?
+	@$(CC) $(CFLAGS) -c $?
 
 test : $(NAME)
-	$(CC) main.c -L $(SRC_DIR) -l ftprintf
+	@$(CC) main.c -L $(SRC_DIR) -l ftprintf
 
-.PHONY : all clean fclean re 
+.PHONY : all clean fclean re

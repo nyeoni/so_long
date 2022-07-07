@@ -13,7 +13,7 @@
 NAME = libft.a
 INCLUDES_DIR = includes
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 AFLAGS = rus
@@ -39,20 +39,20 @@ GNL	= get_next_line.c get_next_line_utils.c
 all : $(NAME)
 
 clean :
-	rm -rf $(addprefix $(LIBFT_DIR)/, $(LIBFT:.c=.o))
-	rm -rf $(addprefix $(FTPRINTF_DIR)/, $(FTPRINTF:.c=.o))
-	rm -rf $(addprefix $(GNL_DIR)/, $(GNL:.c=.o))
+	@rm -rf $(addprefix $(LIBFT_DIR)/, $(LIBFT:.c=.o))
+	@rm -rf $(addprefix $(FTPRINTF_DIR)/, $(FTPRINTF:.c=.o))
+	@rm -rf $(addprefix $(GNL_DIR)/, $(GNL:.c=.o))
 
 fclean : clean
-	rm -rf $(NAME)
+	@rm -rf $(NAME)
 
 re : fclean all
 
 $(NAME): libft ft_printf gnl
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c -o $@ $^
-	$(AR) $(ARFLAGS) $(NAME) $@
+	@$(CC) $(CFLAGS) -c -o $@ $^
+	@$(AR) $(ARFLAGS) $(NAME) $@
 
 libft: $(addprefix $(LIBFT_DIR)/, $(LIBFT:.c=.o))
 ft_printf: $(addprefix $(FTPRINTF_DIR)/, $(FTPRINTF:.c=.o))

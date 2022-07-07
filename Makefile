@@ -6,14 +6,14 @@
 #    By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/20 17:00:14 by nkim              #+#    #+#              #
-#    Updated: 2022/02/01 14:19:47 by nkim             ###   ########.fr        #
+#    Updated: 2022/07/02 19:07:11 by nkim             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME					= so_long
 NAME_BONUS				= so_long_bonus
 
-CC						= gcc
+CC						= cc
 CFLAGS					= -Wall -Werror -Wextra
 AR						= ar rcs
 RM						= rm -rf
@@ -73,51 +73,77 @@ OBJS					= $(SRCS:.c=.o)
 OBJS_BONUS				= $(SRCS_BONUS:.c=.o)
 
 .c.o :
-	$(CC) $(CFLAGS) -I $(INCS_DIR) -I $(INCS_DIR_BONUS) -o $@ -c $?
+	@$(CC) $(CFLAGS) -I $(INCS_DIR) -I $(INCS_DIR_BONUS) -o $@ -c $?
+	@echo $(CUT)$(BOLD)$(MINT) Compiling with $(CFLAGS)...$(RESET)
+	@echo $(CUT)$(MAUVE) [$(notdir $^)] to [$(notdir $@)] $(RESET)
+	@printf $(UP)$(UP)
 
 $(NAME) : $(OBJS)
-	make -C $(LIBFT42_DIR)
-	make -C $(MLX_DIR)
-	$(CC) -o $(NAME) $(OBJS) $(LIBFT42_FLAGS) -I $(INCS_DIR) -L $(MLX_DIR) $(MLX_FLAGS)
+	@make -C $(LIBFT42_DIR)
+	@make -C $(MLX_DIR)
+	@$(CC) -o $(NAME) $(OBJS) $(LIBFT42_FLAGS) -I $(INCS_DIR) -L $(MLX_DIR) $(MLX_FLAGS)
+	@printf $(CUT)$(CUT)
+	@echo $(BOLD)$(L_PURPLE) ✨so_long✨ $(GREEN)is ready 🎉 $(RESET)
 
 all : $(NAME)
 
 clean :
-	make -C $(LIBFT42_DIR) clean
-	make -C $(MLX_DIR) clean
-	$(RM) $(OBJS) $(OBJS_BONUS) so_long.dSYM
+	@make -C $(LIBFT42_DIR) clean
+	@make -C $(MLX_DIR) clean
+	@printf $(CUT)$(CUT)
+	@$(RM) $(OBJS) $(OBJS_BONUS) so_long.dSYM
 
 fclean : clean
-	make -C $(LIBFT42_DIR) fclean
-	$(RM) $(NAME) $(NAME_BONUS) so_long.dSYM
+	@make -C $(LIBFT42_DIR) fclean
+	@$(RM) $(NAME) $(NAME_BONUS) so_long.dSYM
+	@printf $(CUT)$(CUT)
+	@echo $(BOLD)$(L_PURPLE) ✨so_long✨ $(PINK)has been cleaned....🗑️$(RESET)
 
 re : fclean all
 
 bonus : $(NAME_BONUS)
 
 $(NAME_BONUS) : $(OBJS_BONUS)
-	make -C $(LIBFT42_DIR)
-	make -C $(MLX_DIR)
-	$(CC) -o $(NAME_BONUS) $(OBJS_BONUS) $(LIBFT42_FLAGS) -I $(INCS_DIR_BONUS) -L $(MLX_DIR) $(MLX_FLAGS)
+	@make -C $(LIBFT42_DIR)
+	@make -C $(MLX_DIR)
+	@$(CC) -o $(NAME_BONUS) $(OBJS_BONUS) $(LIBFT42_FLAGS) -I $(INCS_DIR_BONUS) -L $(MLX_DIR) $(MLX_FLAGS)
+	@printf $(CUT)$(CUT)
+	@echo $(BOLD)$(L_PURPLE) ✨so_long_bonus✨ $(GREEN)is ready 🎉 $(RESET)
 
 bonus_re : fclean bonus
 
 test :
-	make -C $(LIBFT42_DIR)
-	make -C $(MLX_DIR)
-	$(CC) -g3 -o $(NAME) $(SRCS) $(LIBFT42_FLAGS) -I $(INCS_DIR) -L $(MLX_DIR) $(MLX_FLAGS)
+	@make -C $(LIBFT42_DIR)
+	@make -C $(MLX_DIR)
+	@$(CC) -g3 -o $(NAME) $(SRCS) $(LIBFT42_FLAGS) -I $(INCS_DIR) -L $(MLX_DIR) $(MLX_FLAGS)
 
 leak :
-	make -C $(LIBFT42_DIR)
-	make -C $(MLX_DIR)
-	$(CC) -g3 -fsanitize=address -o $(NAME) $(SRCS) $(LIBFT42_FLAGS) -I $(INCS_DIR) -L $(MLX_DIR) $(MLX_FLAGS)
+	@make -C $(LIBFT42_DIR)
+	@make -C $(MLX_DIR)
+	@$(CC) -g3 -fsanitize=address -o $(NAME) $(SRCS) $(LIBFT42_FLAGS) -I $(INCS_DIR) -L $(MLX_DIR) $(MLX_FLAGS)
 
 bonus_leak :
-	make -C $(LIBFT42_DIR)
-	make -C $(MLX_DIR)
-	$(CC) -g3 -fsanitize=address -o $(NAME_BONUS) $(SRCS_BONUS) $(LIBFT42_FLAGS) -I $(INCS_DIR_BONUS) -L $(MLX_DIR) $(MLX_FLAGS)
+	@make -C $(LIBFT42_DIR)
+	@make -C $(MLX_DIR)
+	@$(CC) -g3 -fsanitize=address -o $(NAME_BONUS) $(SRCS_BONUS) $(LIBFT42_FLAGS) -I $(INCS_DIR_BONUS) -L $(MLX_DIR) $(MLX_FLAGS)
 
 norm :
-	norminette $(SRCS) $(INCS_DIR)*.h
+	@norminette $(SRCS) $(INCS_DIR)*.h
 
 PHONY	: all clean fclean re bonus
+
+######################### Color #########################
+GREEN="\033[32m"
+MINT="\033[38;5;51m"
+L_PURPLE="\033[38;5;55m"
+MAUVE="\033[38;5;147m"
+PINK="\033[38;5;175m"
+RESET="\033[0m"
+BOLD="\033[1m"
+UP = "\033[A"
+DOWN = "\033[B"
+RIGHT = "\033[C"
+LEFT = "\033[D"
+CUT = "\033[K"
+SAVE = "\033[s"
+RESTORE = "\033[u"

@@ -6,12 +6,12 @@
 #    By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/03 22:59:15 by nkim              #+#    #+#              #
-#    Updated: 2021/09/24 20:33:55 by nkim             ###   ########.fr        #
+#    Updated: 2022/07/07 20:59:50 by nkim             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
-CC = gcc
+CC = cc
 AFLAGS = rcs
 CFLAGS = -Wall -Wextra -Werror
 SRCS = *.c
@@ -32,17 +32,17 @@ OBJ	=	$(SRC:.c=.o)
 all : $(NAME)
 
 clean :
-	rm -rf $(OBJ)
+	@rm -rf $(OBJ)
 
 fclean : clean
-	rm -rf $(NAME)
+	@rm -rf $(NAME)
 
 re : fclean all
 
 $(NAME) : $(OBJ)
-	ar $(AFLAGS) $@ $?
+	@ar $(AFLAGS) $@ $?
 
 %.o : %.c
-	$(CC) $(CFLAGS) -c $?
-	
+	@$(CC) $(CFLAGS) -c $?
+
 .PHONY : all clean fclean re
