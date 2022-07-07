@@ -6,7 +6,7 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 15:49:45 by nkim              #+#    #+#             */
-/*   Updated: 2022/01/30 00:19:51 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/08 01:01:23 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	ft_make_iterable_sprites(t_game *game,
 								int cnt)
 {
 	t_sprites	*tmp;
-	char		*fileName;
-	char		*xpmFile;
+	char		*file_name;
+	char		*xpm_file;
 	int			num;
 	int			idx;
 
@@ -29,11 +29,11 @@ void	ft_make_iterable_sprites(t_game *game,
 	while (idx < cnt)
 	{
 		num = '0' + idx;
-		fileName = ft_strjoin(imgName, (char *)&num);
-		xpmFile = ft_strjoin(fileName, ".xpm");
-		tmp->img = ft_make_xpm_img(game, xpmFile);
-		free(fileName);
-		free(xpmFile);
+		file_name = ft_strjoin(imgName, (char *)&num);
+		xpm_file = ft_strjoin(file_name, ".xpm");
+		tmp->img = ft_make_xpm_img(game, xpm_file);
+		free(file_name);
+		free(xpm_file);
 		if (idx != cnt - 1)
 		{
 			tmp->next = (t_sprites *)malloc(sizeof(t_sprites));
