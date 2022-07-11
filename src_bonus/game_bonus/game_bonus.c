@@ -6,7 +6,7 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 22:18:35 by nkim              #+#    #+#             */
-/*   Updated: 2022/07/02 18:41:43 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/12 01:01:16 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	init_window(t_game *game)
 	game->win_ptr = mlx_new_window(game->mlx_ptr, TILE_SIZE * x, TILE_SIZE * y,
 			"KIRBY");
 	game->move_status = NONE;
+	game->is_running = FALSE;
+	game->is_stop = FALSE;
 	game->offset = 0;
 	game->collect.collections = NULL;
 	game->enemy.enemies = NULL;
@@ -43,6 +45,10 @@ void	init_imgs(t_game *game)
 	tiles->open_exit = ft_make_xpm_img(game, "open_exit.xpm");
 	ft_make_iterable_sprites(game, &player->r_sprites, "rkirby", 10);
 	ft_make_iterable_sprites(game, &player->l_sprites, "lkirby", 10);
+	ft_make_iterable_sprites(game, &player->r_run_sprites, "run_kirby", 8);
+	ft_make_iterable_sprites(game, &player->l_run_sprites, "run_lkirby", 8);
+	ft_make_iterable_sprites(game, &player->r_stop_sprites, "stop_kirby", 10);
+	ft_make_iterable_sprites(game, &player->l_stop_sprites, "stop_lkirby", 10);
 	ft_make_iterable_sprites(game, &game->collect.sprites, "star", 6);
 	ft_make_iterable_sprites(game, &game->enemy.sprites, "fire", 4);
 	game->player.r_inital = game->player.r_sprites;

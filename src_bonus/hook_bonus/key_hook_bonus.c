@@ -6,7 +6,7 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 18:07:36 by nkim              #+#    #+#             */
-/*   Updated: 2022/01/30 00:19:28 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/12 02:01:24 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,40 @@ void	move_key_hook(int keycode, t_game *game)
 	printf("STEP : %d\n", ++(game->step));
 }
 
+void	run_key_hook(t_game *game)
+{
+	t_player	player;
+
+	player = game->player;
+	if (player.initial == player.r_inital)
+		game->player.sprites = game->player.r_run_sprites;
+	else
+		game->player.sprites = game->player.l_run_sprites;
+	game->is_running = TRUE;
+}
+
+void	stop_key_hook(t_game *game)
+{
+	t_player	player;
+
+	player = game->player;
+	if (player.initial == player.r_inital)
+		game->player.sprites = player.r_stop_sprites;
+	else
+		game->player.sprites = player.l_stop_sprites;
+	game->is_stop = TRUE;
+}
+
 int	key_hook(int keycode, t_game *game)
 {
-	if (game->move_status == NONE
-		&& (keycode == KEY_A || keycode == KEY_D
+	if (game->move_status == NONE && (keycode == KEY_A || keycode == KEY_D
 			|| keycode == KEY_S || keycode == KEY_W))
 		move_key_hook(keycode, game);
 	if (keycode == KEY_ESC)
 		close_game(game);
+	if (keycode == KEY_SPACE)
+		run_key_hook(game);
+	if (keycode == KEY_B)
+		stop_key_hook(game);
 	return (1);
 }

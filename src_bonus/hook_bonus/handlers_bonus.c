@@ -6,7 +6,7 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 17:59:15 by nkim              #+#    #+#             */
-/*   Updated: 2022/01/30 15:27:55 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/12 00:54:46 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,24 @@ void	handle_wall(t_game *game, int offsetX, int offsetY)
 	int		col;
 
 	map = game->map.map;
-	row = (game->player.y + offsetY) / TILE_SIZE;
-	col = (game->player.x + offsetX) / TILE_SIZE;
+	row = game->player.y / TILE_SIZE;
+	col = game->player.x / TILE_SIZE;
 	if (offsetX > 0)
-		col += 1;
+		col++;
 	else if (offsetY > 0)
-		row += 1;
-	if (map[row][col] != '1' ||
-		(!((game->player.y + offsetY) % TILE_SIZE) &&
-			!((game->player.x + offsetX) % TILE_SIZE)))
+		row++;
+	else
+	{
+		row = (game->player.y + offsetY) / TILE_SIZE;
+		col = (game->player.x + offsetX) / TILE_SIZE;
+	}
+	if (map[row][col] != '1')
 	{
 		game->player.x = game->player.x + offsetX;
 		game->player.y = game->player.y + offsetY;
 	}
+	if (map[row][col] == '1')
+		game->is_stop = TRUE;
 }
 
 void	handle_collect(t_game *game, int offsetX, int offsetY)
@@ -43,13 +48,14 @@ void	handle_collect(t_game *game, int offsetX, int offsetY)
 	map = game->map.map;
 	row = (game->player.y + offsetY);
 	col = (game->player.x + offsetX);
-	if (!(row % TILE_SIZE) && !(col % TILE_SIZE)
-		&& map[row / TILE_SIZE][col / TILE_SIZE] == 'C')
+	if (!(row % TILE_SIZE) && !(col % TILE_SIZE) && map[row / TILE_SIZE][col
+		/ TILE_SIZE] == 'C')
 	{
 		ft_lstc_delete(&game->collect.collections,
-			game->player.x + offsetX, game->player.y + offsetY);
-		ft_put_img(game, game->tiles.ground,
-			game->player.x + offsetX, game->player.y + offsetY);
+						game->player.x + offsetX,
+						game->player.y + offsetY);
+		ft_put_img(game, game->tiles.ground, game->player.x + offsetX,
+				game->player.y + offsetY);
 	}
 }
 
@@ -62,8 +68,8 @@ void	handle_exit(t_game *game, int offsetX, int offsetY)
 	map = game->map.map;
 	row = (game->player.y + offsetY);
 	col = (game->player.x + offsetX);
-	if (!(row % TILE_SIZE) && !(col % TILE_SIZE)
-		&& map[row / TILE_SIZE][col / TILE_SIZE] == 'E')
+	if (!(row % TILE_SIZE) && !(col % TILE_SIZE) && map[row / TILE_SIZE][col
+		/ TILE_SIZE] == 'E')
 	{
 		if (!game->collect.collections)
 		{
@@ -82,8 +88,8 @@ void	handle_enemy(t_game *game, int offsetX, int offsetY)
 	map = game->map.map;
 	row = (game->player.y + offsetY);
 	col = (game->player.x + offsetX);
-	if (!(row % TILE_SIZE) && !(col % TILE_SIZE)
-		&& map[row / TILE_SIZE][col / TILE_SIZE] == 'F')
+	if (!(row % TILE_SIZE) && !(col % TILE_SIZE) && map[row / TILE_SIZE][col
+		/ TILE_SIZE] == 'F')
 	{
 		printf("\033[1;31m== FAIL!! ==\033[0m\n");
 		close_game(game);
