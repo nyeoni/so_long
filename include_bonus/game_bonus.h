@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_step_bonus.c                                  :+:      :+:    :+:   */
+/*   game_bonus.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/30 00:47:17 by nkim              #+#    #+#             */
-/*   Updated: 2022/07/12 03:12:27 by nkim             ###   ########.fr       */
+/*   Created: 2022/07/12 03:49:59 by nkim              #+#    #+#             */
+/*   Updated: 2022/07/12 03:52:40 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long_bonus.h"
+#ifndef GAME_BONUS_H
+# define GAME_BONUS_H
 
-void	draw_step(t_game *game)
-{
-	char	*step;
+# include "../lib/mlx/mlx.h"
+# include "so_long_bonus.h"
 
-	step = ft_itoa(game->step);
-	ft_put_img(game, game->tiles.step, 0, 0);
-	mlx_string_put(game->mlx_ptr, game->win_ptr, 25, 37, 0x00000000, step);
-}
+void	init_game(t_game *game);
+void	start_game(t_game *game);
+int		close_game(t_game *game);
+
+#endif

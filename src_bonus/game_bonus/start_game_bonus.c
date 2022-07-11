@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_step_bonus.c                                  :+:      :+:    :+:   */
+/*   start_game_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/30 00:47:17 by nkim              #+#    #+#             */
-/*   Updated: 2022/07/12 03:12:27 by nkim             ###   ########.fr       */
+/*   Created: 2022/07/12 03:44:26 by nkim              #+#    #+#             */
+/*   Updated: 2022/07/12 03:51:32 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long_bonus.h"
+#include "game_bonus.h"
 
-void	draw_step(t_game *game)
+void	start_game(t_game *game)
 {
-	char	*step;
-
-	step = ft_itoa(game->step);
-	ft_put_img(game, game->tiles.step, 0, 0);
-	mlx_string_put(game->mlx_ptr, game->win_ptr, 25, 37, 0x00000000, step);
+	init_game(game);
+	draw_tiles(game);
+	draw_step(game);
+	draw_sprites(game);
+	draw_enemies(game);
+	draw_exit(game);
+	printf("\033[1;33m== Start Game ==\033[0m\n");
 }

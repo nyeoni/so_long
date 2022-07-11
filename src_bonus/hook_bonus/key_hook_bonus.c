@@ -6,7 +6,7 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 18:07:36 by nkim              #+#    #+#             */
-/*   Updated: 2022/07/12 02:01:24 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/12 03:17:44 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void	move_key_hook(int keycode, t_game *game)
 		game->move_status = BOTTOM;
 		game->offset = game->player.y;
 	}
-	printf("STEP : %d\n", ++(game->step));
 }
 
 void	run_key_hook(t_game *game)
