@@ -6,7 +6,7 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:18:15 by nkim              #+#    #+#             */
-/*   Updated: 2022/07/12 04:22:21 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/12 04:36:56 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	valid_characters(char *line)
 		if (!(line[idx] == '0' || line[idx] == '1' || line[idx] == 'C'
 				|| line[idx] == 'E' || line[idx] == 'P' || line[idx] == 'F'))
 			throw_error("CharactersError :"
-						"not allowed characters in map file!");
+				"not allowed characters in map file!");
 		idx++;
 	}
 	return ;

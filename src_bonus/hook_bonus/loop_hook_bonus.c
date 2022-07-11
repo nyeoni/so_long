@@ -6,7 +6,7 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 18:07:20 by nkim              #+#    #+#             */
-/*   Updated: 2022/07/12 04:28:24 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/12 04:33:02 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	finish_game(t_game *game)
 	if (game->status == FAIL && cnt < 8)
 	{
 		ft_put_img(game, game->player.fire_sprites->img, game->player.x,
-				game->player.y);
+			game->player.y);
 		game->player.fire_sprites = game->player.fire_sprites->next;
 	}
 	else

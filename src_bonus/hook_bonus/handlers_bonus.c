@@ -6,7 +6,7 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 17:59:15 by nkim              #+#    #+#             */
-/*   Updated: 2022/07/12 04:28:51 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/12 04:34:01 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,10 @@ void	handle_collect(t_game *game, int offsetX, int offsetY)
 		/ TILE_SIZE] == 'C')
 	{
 		ft_lstc_delete(&game->collect.collections,
-						game->player.x + offsetX,
-						game->player.y + offsetY);
+			game->player.x + offsetX,
+			game->player.y + offsetY);
 		ft_put_img(game, game->tiles.ground, game->player.x + offsetX,
-				game->player.y + offsetY);
+			game->player.y + offsetY);
 	}
 }
 
@@ -77,7 +77,6 @@ void	handle_exit(t_game *game, int offsetX, int offsetY)
 		{
 			game->status = SUCCESS;
 			printf("\033[1;32m== Success!! ==\033[0m\n");
-			// close_game(game);
 		}
 	}
 }
@@ -91,12 +90,11 @@ void	handle_enemy(t_game *game, int offsetX, int offsetY)
 	map = game->map.map;
 	row = (game->player.y + offsetY);
 	col = (game->player.x + offsetX);
-	if (!(row % TILE_SIZE) && !(col % TILE_SIZE) && map[row / TILE_SIZE][col
-		/ TILE_SIZE] == 'F')
+	if (!(row % TILE_SIZE) && !(col % TILE_SIZE)
+		&& map[row / TILE_SIZE][col / TILE_SIZE] == 'F')
 	{
 		game->status = FAIL;
 		printf("\033[1;31m== FAIL!! ==\033[0m\n");
-		// close_game(game);
 	}
 }
 

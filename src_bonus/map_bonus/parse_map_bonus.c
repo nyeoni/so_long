@@ -6,7 +6,7 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:50:12 by nkim              #+#    #+#             */
-/*   Updated: 2022/07/12 04:22:17 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/12 04:36:40 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,8 @@ static void	read_map(t_game *game, char *fileName)
 		valid_characters(line);
 		valid_length(line, game->map.cols);
 		map->rows++;
-		game->map.map = (char **)ft_ptr_realloc(game->map.map,
-												map->rows - 1,
-												map->rows);
+		game->map.map = (char **)ft_ptr_realloc(game->map.map, \
+							map->rows - 1, map->rows);
 		game->map.map[map->rows - 1] = line;
 		line = ft_get_line(fd);
 	}

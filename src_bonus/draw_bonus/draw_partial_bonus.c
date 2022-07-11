@@ -6,7 +6,7 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 19:40:29 by nkim              #+#    #+#             */
-/*   Updated: 2022/07/12 04:18:53 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/12 04:31:52 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ void	draw_partial_tiles(t_game *game, int row, int col)
 
 void	draw_partial(t_game *game, void (*partial_func)(t_game *, int, int))
 {
-	int row;
-	int col;
-	int move_status;
+	int	row;
+	int	col;
+	int	move_status;
 
 	row = (game->player.y) / TILE_SIZE;
 	col = (game->player.x) / TILE_SIZE;
