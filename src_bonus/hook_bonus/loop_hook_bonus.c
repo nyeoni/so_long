@@ -6,11 +6,14 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 18:07:20 by nkim              #+#    #+#             */
-/*   Updated: 2022/07/12 03:19:19 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/12 04:14:03 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long_bonus.h"
+#include "game_bonus.h"
+#include "hook_bonus.h"
+#include "utils_bonus.h"
+#include <stdio.h>
 
 void	move_player(t_game *game)
 {

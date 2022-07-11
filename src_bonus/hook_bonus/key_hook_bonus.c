@@ -6,11 +6,12 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 18:07:36 by nkim              #+#    #+#             */
-/*   Updated: 2022/07/12 03:17:44 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/12 04:12:44 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long_bonus.h"
+#include "game_bonus.h"
+#include "hook_bonus.h"
 
 void	move_key_hook(int keycode, t_game *game)
 {

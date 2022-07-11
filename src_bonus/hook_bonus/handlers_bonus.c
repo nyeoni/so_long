@@ -6,11 +6,12 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 17:59:15 by nkim              #+#    #+#             */
-/*   Updated: 2022/07/12 02:39:41 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/12 04:14:22 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long_bonus.h"
+#include "hook_bonus.h"
+#include <stdio.h>
 
 void	handle_wall(t_game *game, int offsetX, int offsetY)
 {

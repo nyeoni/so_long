@@ -6,7 +6,7 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 20:55:51 by nkim              #+#    #+#             */
-/*   Updated: 2022/07/12 04:08:08 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/12 04:13:23 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,6 @@
 
 # define TILE_SIZE 64
 # define MAX_OFFSET 6400
-
-# define KEY_EXIT 17
-# define KEY_W 13
-# define KEY_S 1
-# define KEY_D 2
-# define KEY_A 0
-# define KEY_ESC 53
-# define KEY_SPACE 49
-# define KEY_B 11
 
 # define NONE 0
 # define LEFT 1
