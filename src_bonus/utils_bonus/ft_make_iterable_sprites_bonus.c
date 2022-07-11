@@ -6,11 +6,11 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 15:49:45 by nkim              #+#    #+#             */
-/*   Updated: 2022/07/08 01:01:23 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/12 04:05:09 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long_bonus.h"
+#include "utils_bonus.h"
 
 void	ft_make_iterable_sprites(t_game *game,
 								t_sprites **sprites,

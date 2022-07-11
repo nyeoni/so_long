@@ -6,11 +6,11 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 16:19:18 by nkim              #+#    #+#             */
-/*   Updated: 2022/01/30 00:19:47 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/12 04:05:04 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long_bonus.h"
+#include "utils_bonus.h"
 
 t_component	*ft_lstc_last(t_component *component)
 {

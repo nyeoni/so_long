@@ -6,7 +6,7 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 20:55:51 by nkim              #+#    #+#             */
-/*   Updated: 2022/07/12 04:00:54 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/12 04:08:08 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,10 @@
 # define SO_LONG_BONUS_H
 
 // Common Lib
-# include <stdio.h>
-# include <stdlib.h>
-
-// My Lib
-# include "../lib/libft/include/libft42.h"
-# include "../lib/mlx/mlx.h"
-
+// # include <stdio.h>
+// # include <stdlib.h>
 # define TRUE 1
 # define FALSE 0
-
-# define ASSET_PATH "./assets/"
 
 # define TILE_SIZE 64
 # define MAX_OFFSET 6400
@@ -132,23 +125,6 @@ typedef struct s_game
 	t_collect			collect;
 	t_enemy				enemy;
 }						t_game;
-
-// UTILS DIR
-// FT_POINTER_REALLOC.C
-void					ft_put_img(t_game *game, void *img, int x, int y);
-void					*ft_ptr_realloc(void *buf, int before_size,
-							int after_size);
-void					*ft_make_xpm_img(t_game *game, char *fileName);
-void	ft_make_iterable_sprites(t_game *game,
-								t_sprites **sprites,
-								char *imgName,
-								int cnt);
-char					*ft_get_line(int fd);
-
-void					ft_lstc_add_back(t_component **lst, t_component *new);
-int						ft_lstc_size(t_component *lst);
-int						ft_lstc_add(t_component **lst, int x, int y);
-void					ft_lstc_delete(t_component **lst, int x, int y);
 
 // DRAW DIR
 // draw.c

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ptr_realloc.c                                   :+:      :+:    :+:   */
+/*   ft_ptr_realloc_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 19:10:03 by nkim              #+#    #+#             */
-/*   Updated: 2022/01/29 23:53:41 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/12 04:05:50 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "utils_bonus.h"
 
 void	*ft_ptr_realloc(void *buf, int before_size, int after_size)
 {

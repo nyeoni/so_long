@@ -6,10 +6,12 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 18:56:18 by nkim              #+#    #+#             */
-/*   Updated: 2022/01/30 01:25:27 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/12 04:06:46 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "game_bonus.h"
+#include "parse_bonus.h"
 #include "so_long_bonus.h"
 
 int	main(int argc, char **argv)
