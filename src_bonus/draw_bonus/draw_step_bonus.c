@@ -6,7 +6,7 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 00:47:17 by nkim              #+#    #+#             */
-/*   Updated: 2022/07/12 04:19:00 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/12 05:20:16 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,5 @@ void	draw_step(t_game *game)
 	step = ft_itoa(game->step);
 	ft_put_img(game, game->tiles.step, 0, 0);
 	mlx_string_put(game->mlx_ptr, game->win_ptr, 25, 37, 0x00000000, step);
+	free(step);
 }
