@@ -6,7 +6,7 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 17:59:15 by nkim              #+#    #+#             */
-/*   Updated: 2022/07/12 00:54:46 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/12 02:39:41 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,9 @@ void	handle_exit(t_game *game, int offsetX, int offsetY)
 	{
 		if (!game->collect.collections)
 		{
+			game->status = SUCCESS;
 			printf("\033[1;32m== Success!! ==\033[0m\n");
-			close_game(game);
+			// close_game(game);
 		}
 	}
 }
@@ -91,8 +92,9 @@ void	handle_enemy(t_game *game, int offsetX, int offsetY)
 	if (!(row % TILE_SIZE) && !(col % TILE_SIZE) && map[row / TILE_SIZE][col
 		/ TILE_SIZE] == 'F')
 	{
+		game->status = FAIL;
 		printf("\033[1;31m== FAIL!! ==\033[0m\n");
-		close_game(game);
+		// close_game(game);
 	}
 }
 

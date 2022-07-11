@@ -6,7 +6,7 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 18:07:20 by nkim              #+#    #+#             */
-/*   Updated: 2022/07/12 02:22:37 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/12 02:49:37 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,23 @@ void	stop_player(t_game *game)
 		draw_init(game);
 }
 
+void	finish_game(t_game *game)
+{
+	static int	cnt;
+
+	cnt++;
+	if (game->status == FAIL && cnt < 8)
+	{
+		ft_put_img(game, game->player.fire_sprites->img, game->player.x,
+				game->player.y);
+		game->player.fire_sprites = game->player.fire_sprites->next;
+	}
+	else
+	{
+		close_game(game);
+	}
+}
+
 int	loop_hook(t_game *game)
 {
 	static unsigned int	frame;
@@ -41,6 +58,8 @@ int	loop_hook(t_game *game)
 		draw_animate_collect(game);
 		draw_animate_enemy(game);
 	}
+	if (!(frame % 288) && game->status)
+		finish_game(game);
 	if (!(frame % 288) && game->is_running)
 		move_player(game);
 	else if (!(frame % 288) && game->is_stop)

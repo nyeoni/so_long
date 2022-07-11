@@ -6,7 +6,7 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 20:55:51 by nkim              #+#    #+#             */
-/*   Updated: 2022/07/12 02:02:17 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/12 02:45:53 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,13 @@
 # define BOTTOM 3
 # define TOP 4
 
+typedef enum s_status
+{
+	ING,
+	FAIL,
+	SUCCESS
+}						t_status;
+
 // Structures
 typedef struct s_sprites
 {
@@ -68,6 +75,7 @@ typedef struct s_player
 	t_sprites			*l_run_sprites;
 	t_sprites			*r_stop_sprites;
 	t_sprites			*l_stop_sprites;
+	t_sprites			*fire_sprites;
 }						t_player;
 
 typedef struct s_component
@@ -118,6 +126,7 @@ typedef struct s_game
 	int					is_stop;
 	int					offset;
 	int					step;
+	t_status			status;
 	t_map				map;
 	t_tiles				tiles;
 	t_player			player;
