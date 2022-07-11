@@ -6,7 +6,7 @@
 #    By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/20 17:00:14 by nkim              #+#    #+#              #
-#    Updated: 2022/07/02 19:07:11 by nkim             ###   ########.fr        #
+#    Updated: 2022/07/11 20:28:06 by nkim             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,7 @@ SRCS_BONUS				= $(SRCS_DIR_BONUS)main_bonus.c \
 						$(PATH_UTILS_BONUS)ft_lst_component_bonus.c \
 						$(PATH_GAME_BONUS)game_bonus.c \
 						$(PATH_DRAW_BONUS)draw_bonus.c $(PATH_DRAW_BONUS)draw_animate_bonus.c \
-						$(PATH_DRAW_BONUS)draw_step_bonus.c \
+						$(PATH_DRAW_BONUS)draw_step_bonus.c $(PATH_DRAW_BONUS)draw_partial_bonus.c \
 						$(PATH_HOOK_BONUS)key_hook_bonus.c $(PATH_HOOK_BONUS)loop_hook_bonus.c \
 						$(PATH_HOOK_BONUS)handlers_bonus.c
 
