@@ -6,7 +6,7 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:49:59 by nkim              #+#    #+#             */
-/*   Updated: 2022/07/12 03:52:40 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/12 06:01:36 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 void	init_game(t_game *game);
 void	start_game(t_game *game);
+void	restart_game(t_game *game);
 int		close_game(t_game *game);
 
 #endif

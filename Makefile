@@ -6,7 +6,7 @@
 #    By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/20 17:00:14 by nkim              #+#    #+#              #
-#    Updated: 2022/07/12 03:53:40 by nkim             ###   ########.fr        #
+#    Updated: 2022/07/12 06:41:51 by nkim             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME					= so_long
 NAME_BONUS				= so_long_bonus
 
 CC						= cc
-CFLAGS					= -Wall -Werror -Wextra
+CFLAGS					= -Wall -Werror -Wextra -g
 AR						= ar rcs
 RM						= rm -rf
 
@@ -63,11 +63,11 @@ SRCS_BONUS				= $(SRCS_DIR_BONUS)main_bonus.c \
 						$(PATH_UTILS_BONUS)ft_make_xpm_img_bonus.c $(PATH_UTILS_BONUS)ft_put_img_bonus.c\
 						$(PATH_UTILS_BONUS)ft_make_iterable_sprites_bonus.c \
 						$(PATH_UTILS_BONUS)ft_lst_component_bonus.c \
-						$(PATH_GAME_BONUS)init_game_bonus.c $(PATH_GAME_BONUS)start_game_bonus.c $(PATH_GAME_BONUS)close_game_bonus.c\
-						$(PATH_DRAW_BONUS)draw_bonus.c $(PATH_DRAW_BONUS)draw_animate_bonus.c \
+						$(PATH_GAME_BONUS)init_game_bonus.c $(PATH_GAME_BONUS)start_game_bonus.c $(PATH_GAME_BONUS)restart_game_bonus.c $(PATH_GAME_BONUS)close_game_bonus.c\
+						$(PATH_DRAW_BONUS)draw_bonus.c $(PATH_DRAW_BONUS)draw_animate_bonus.c $(PATH_DRAW_BONUS)draw_screen_bonus.c \
 						$(PATH_DRAW_BONUS)draw_step_bonus.c $(PATH_DRAW_BONUS)draw_partial_bonus.c \
 						$(PATH_HOOK_BONUS)key_hook_bonus.c $(PATH_HOOK_BONUS)loop_hook_bonus.c \
-						$(PATH_HOOK_BONUS)handlers_bonus.c
+						$(PATH_HOOK_BONUS)handle_location.c $(PATH_HOOK_BONUS)handle_moving.c $(PATH_HOOK_BONUS)handle_player.c
 
 OBJS					= $(SRCS:.c=.o)
 OBJS_BONUS				= $(SRCS_BONUS:.c=.o)
@@ -81,7 +81,7 @@ OBJS_BONUS				= $(SRCS_BONUS:.c=.o)
 $(NAME) : $(OBJS)
 	@make -C $(LIBFT42_DIR)
 	@make -C $(MLX_DIR)
-	@$(CC) -o $(NAME) $(OBJS) $(LIBFT42_FLAGS) -I $(INCS_DIR) -L $(MLX_DIR) $(MLX_FLAGS)
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT42_FLAGS) -I $(INCS_DIR) -L $(MLX_DIR) $(MLX_FLAGS)
 	@printf $(CUT)$(CUT)
 	@echo $(BOLD)$(L_PURPLE) ✨so_long✨ $(GREEN)is ready 🎉 $(RESET)
 
@@ -106,7 +106,7 @@ bonus : $(NAME_BONUS)
 $(NAME_BONUS) : $(OBJS_BONUS)
 	@make -C $(LIBFT42_DIR)
 	@make -C $(MLX_DIR)
-	@$(CC) -o $(NAME_BONUS) $(OBJS_BONUS) $(LIBFT42_FLAGS) -I $(INCS_DIR_BONUS) -L $(MLX_DIR) $(MLX_FLAGS)
+	@$(CC) $(CFLAGS) -o $(NAME_BONUS) $(OBJS_BONUS) $(LIBFT42_FLAGS) -I $(INCS_DIR_BONUS) -L $(MLX_DIR) $(MLX_FLAGS)
 	@printf $(CUT)$(CUT)
 	@echo $(BOLD)$(L_PURPLE) ✨so_long_bonus✨ $(GREEN)is ready 🎉 $(RESET)
 

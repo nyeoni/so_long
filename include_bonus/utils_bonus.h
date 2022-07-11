@@ -6,7 +6,7 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:49:59 by nkim              #+#    #+#             */
-/*   Updated: 2022/07/12 04:37:33 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/12 06:19:24 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 void	ft_put_img(t_game *game, void *img, int x, int y);
 void	*ft_ptr_realloc(void *buf, int before_size, int after_size);
 void	*ft_make_xpm_img(t_game *game, char *fileName);
+void	*ft_make_xpm_screen(t_game *game, char *xpmFile);
 void	ft_make_iterable_sprites(t_game *game,
 			t_sprites **sprites,
 			char *imgName,

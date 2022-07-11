@@ -6,7 +6,7 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 20:55:51 by nkim              #+#    #+#             */
-/*   Updated: 2022/07/12 04:17:33 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/12 06:06:52 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # define TRUE 1
 # define FALSE 0
+
+# define SCREEN_WIDTH 384
+# define SCREEN_HEIGHT 320
 
 # define TILE_SIZE 64
 # define MAX_OFFSET 6400
@@ -27,9 +30,10 @@
 
 typedef enum s_status
 {
-	ING,
+	PLAYING,
 	FAIL,
-	SUCCESS
+	SUCCESS,
+	NOTSTARTED
 }						t_status;
 
 // Structures
@@ -97,6 +101,13 @@ typedef struct s_map
 	int					e_cnt;
 }						t_map;
 
+typedef struct s_screen
+{
+	void	*start;
+	void	*fail;
+	void	*success;
+}	t_screen;
+
 typedef struct s_game
 {
 	void				*mlx_ptr;
@@ -107,6 +118,7 @@ typedef struct s_game
 	int					offset;
 	int					step;
 	t_status			status;
+	t_screen			screen;
 	t_map				map;
 	t_tiles				tiles;
 	t_player			player;

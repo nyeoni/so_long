@@ -6,7 +6,7 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:49:59 by nkim              #+#    #+#             */
-/*   Updated: 2022/07/12 04:37:43 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/12 06:30:20 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,10 @@ void	draw_animate_enemy(t_game *game);
 void	draw_partial(t_game *game,
 			void (*partial_func)(t_game *, int, int));
 void	draw_partial_tiles(t_game *game, int row, int col);
+
+void	draw_screen(t_game *game);
+void	draw_start_screen(t_game *game);
+void	draw_fail_screen(t_game *game);
+void	draw_success_screen(t_game *game);
 
 #endif
