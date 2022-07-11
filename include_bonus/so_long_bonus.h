@@ -6,7 +6,7 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 20:55:51 by nkim              #+#    #+#             */
-/*   Updated: 2022/07/12 02:45:53 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/12 04:00:54 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define SO_LONG_BONUS_H
 
 // Common Lib
-# include <fcntl.h>
 # include <stdio.h>
 # include <stdlib.h>
 
@@ -134,21 +133,6 @@ typedef struct s_game
 	t_enemy				enemy;
 }						t_game;
 
-// Directory functions
-// ERROR DIR
-void					throw_error(char *message);
-
-// MAP DIR
-// parse_map.c
-void					parse_map(t_game *game, char *fileName);
-
-// validate_map.c
-void					valid_extension(char *fileName);
-void					valid_characters(char *line);
-void					valid_length(char *src, int length);
-void					valid_wall(t_map *map, int row_idx);
-void					valid_least(t_map *map);
-
 // UTILS DIR
 // FT_POINTER_REALLOC.C
 void					ft_put_img(t_game *game, void *img, int x, int y);
@@ -165,10 +149,6 @@ void					ft_lstc_add_back(t_component **lst, t_component *new);
 int						ft_lstc_size(t_component *lst);
 int						ft_lstc_add(t_component **lst, int x, int y);
 void					ft_lstc_delete(t_component **lst, int x, int y);
-
-// GAME DIR
-void					start_game(t_game *game);
-int						close_game(t_game *game);
 
 // DRAW DIR
 // draw.c

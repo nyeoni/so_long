@@ -6,11 +6,11 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:18:15 by nkim              #+#    #+#             */
-/*   Updated: 2022/02/04 15:06:09 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/12 03:59:17 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long_bonus.h"
+#include "parse_bonus.h"
 
 void	valid_extension(char *fileName)
 {
@@ -31,9 +31,9 @@ void	valid_characters(char *line)
 	idx = 0;
 	while (line[idx])
 	{
-		if (!(line[idx] == '0' || line[idx] == '1' || line[idx] == 'C' \
-			|| line[idx] == 'E' || line[idx] == 'P' || line[idx] == 'F'))
-			throw_error("CharactersError :" \
+		if (!(line[idx] == '0' || line[idx] == '1' || line[idx] == 'C'
+				|| line[idx] == 'E' || line[idx] == 'P' || line[idx] == 'F'))
+			throw_error("CharactersError :"
 						"not allowed characters in map file!");
 		idx++;
 	}

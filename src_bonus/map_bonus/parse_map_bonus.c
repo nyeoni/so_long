@@ -6,13 +6,13 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:50:12 by nkim              #+#    #+#             */
-/*   Updated: 2022/01/30 00:19:37 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/12 03:59:07 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long_bonus.h"
+#include "parse_bonus.h"
 
-void	init_map(t_map *map, char *line)
+static void	init_map(t_map *map, char *line)
 {
 	map->map = (char **)malloc(sizeof(char *) * 1);
 	map->cols = ft_strlen(line);
@@ -23,7 +23,7 @@ void	init_map(t_map *map, char *line)
 	map->e_cnt = 0;
 }
 
-void	read_map(t_game *game, char *fileName)
+static void	read_map(t_game *game, char *fileName)
 {
 	int		fd;
 	char	*line;
@@ -44,15 +44,16 @@ void	read_map(t_game *game, char *fileName)
 		valid_characters(line);
 		valid_length(line, game->map.cols);
 		map->rows++;
-		game->map.map = (char **)ft_ptr_realloc(game->map.map, \
-									map->rows - 1, map->rows);
+		game->map.map = (char **)ft_ptr_realloc(game->map.map,
+												map->rows - 1,
+												map->rows);
 		game->map.map[map->rows - 1] = line;
 		line = ft_get_line(fd);
 	}
 	close(fd);
 }
 
-void	count_component(t_map *map)
+static void	count_component(t_map *map)
 {
 	int		row_idx;
 	int		idx;
