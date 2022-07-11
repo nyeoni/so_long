@@ -6,11 +6,13 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 22:18:35 by nkim              #+#    #+#             */
-/*   Updated: 2022/07/12 03:52:01 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/12 04:24:40 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game_bonus.h"
+#include "utils_bonus.h"
+#include <stdlib.h>
 
 static void	init_window(t_game *game)
 {

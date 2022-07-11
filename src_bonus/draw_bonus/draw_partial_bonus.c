@@ -6,11 +6,12 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 19:40:29 by nkim              #+#    #+#             */
-/*   Updated: 2022/07/12 03:54:32 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/12 04:18:53 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long_bonus.h"
+#include "draw_bonus.h"
+#include "utils_bonus.h"
 
 void	draw_partial_tiles(t_game *game, int row, int col)
 {

@@ -6,11 +6,13 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:44:44 by nkim              #+#    #+#             */
-/*   Updated: 2022/07/12 03:51:51 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/12 04:27:51 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game_bonus.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 int	close_game(t_game *game)
 {

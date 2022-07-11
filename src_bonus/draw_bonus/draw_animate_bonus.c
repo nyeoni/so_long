@@ -6,11 +6,13 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 17:50:07 by nkim              #+#    #+#             */
-/*   Updated: 2022/02/04 15:04:09 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/12 04:18:15 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long_bonus.h"
+#include "draw_bonus.h"
+#include "hook_bonus.h"
+#include "utils_bonus.h"
 
 void	draw_animate_player(t_game *game)
 {

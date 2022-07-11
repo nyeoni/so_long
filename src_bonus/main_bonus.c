@@ -6,11 +6,13 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 18:56:18 by nkim              #+#    #+#             */
-/*   Updated: 2022/07/12 04:06:46 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/12 04:23:02 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "error_bonus.h"
 #include "game_bonus.h"
+#include "hook_bonus.h"
 #include "parse_bonus.h"
 #include "so_long_bonus.h"
 

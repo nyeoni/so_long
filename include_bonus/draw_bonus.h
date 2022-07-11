@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_bonus.h                                      :+:      :+:    :+:   */
+/*   draw_bonus.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:49:59 by nkim              #+#    #+#             */
-/*   Updated: 2022/07/12 04:22:13 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/12 04:16:46 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSE_BONUS_H
-# define PARSE_BONUS_H
+#ifndef DRAW_BONUS_H
+# define DRAW_BONUS_H
 
 # include "so_long_bonus.h"
 
-void	parse_map(t_game *game, char *fileName);
-void	valid_extension(char *fileName);
-void	valid_characters(char *line);
-void	valid_length(char *src, int length);
-void	valid_wall(t_map *map, int row_idx);
-void	valid_least(t_map *map);
+void	draw_tiles(t_game *game);
+void	draw_step(t_game *game);
+void	draw_sprites(t_game *game);
+void	draw_exit(t_game *game);
+void	draw_enemies(t_game *game);
+void	draw_init(t_game *game);
+
+void	draw_animate_player(t_game *game);
+void	draw_animate_collect(t_game *game);
+void	draw_animate_enemy(t_game *game);
+
+void	draw_partial(t_game *game,
+					void (*partial_func)(t_game *, int, int));
+void	draw_partial_tiles(t_game *game, int row, int col);
 
 #endif

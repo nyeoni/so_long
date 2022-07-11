@@ -6,11 +6,13 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 00:47:17 by nkim              #+#    #+#             */
-/*   Updated: 2022/07/12 03:12:27 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/12 04:19:00 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long_bonus.h"
+#include "draw_bonus.h"
+#include "hook_bonus.h"
+#include "utils_bonus.h"
 
 void	draw_step(t_game *game)
 {

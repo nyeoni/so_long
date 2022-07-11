@@ -6,11 +6,12 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 19:04:18 by nkim              #+#    #+#             */
-/*   Updated: 2022/07/12 04:05:32 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/12 04:26:15 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils_bonus.h"
+#include <stdio.h>
 
 void	*ft_make_xpm_img(t_game *game, char *xpmFile)
 {

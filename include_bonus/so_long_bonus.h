@@ -6,16 +6,13 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 20:55:51 by nkim              #+#    #+#             */
-/*   Updated: 2022/07/12 04:13:23 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/12 04:17:33 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_BONUS_H
 # define SO_LONG_BONUS_H
 
-// Common Lib
-// # include <stdio.h>
-// # include <stdlib.h>
 # define TRUE 1
 # define FALSE 0
 
@@ -116,44 +113,5 @@ typedef struct s_game
 	t_collect			collect;
 	t_enemy				enemy;
 }						t_game;
-
-// DRAW DIR
-// draw.c
-void					draw_tiles(t_game *game);
-void					draw_step(t_game *game);
-void					draw_sprites(t_game *game);
-void					draw_exit(t_game *game);
-void					draw_enemies(t_game *game);
-void					draw_init(t_game *game);
-
-// draw_animate.c
-void					draw_animate_player(t_game *game);
-void					draw_animate_collect(t_game *game);
-void					draw_animate_enemy(t_game *game);
-
-// draw_partial.c
-void	draw_partial(t_game *game,
-					void (*partial_func)(t_game *, int, int));
-void					draw_partial_enemy(t_game *game, int row, int col);
-void					draw_partial_collect(t_game *game, int row, int col);
-void					draw_partial_tiles(t_game *game, int row, int col);
-
-// HOOK DIR
-// loop_hook.c
-int						loop_hook(t_game *game);
-
-// key_hook.c
-int						key_hook(int keycode, t_game *game);
-
-// handlers.c
-void					handle_wall(t_game *game, int offsetX, int offsetY);
-void					handle_collect(t_game *game, int offsetX, int offsetY);
-void					handle_location(t_game *game, int offsetX, int offsetY);
-
-// animate
-void	animate_sprites(t_game *game,
-						t_sprites **sprites,
-						int x,
-						int y);
 
 #endif

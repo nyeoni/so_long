@@ -6,11 +6,13 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:50:12 by nkim              #+#    #+#             */
-/*   Updated: 2022/07/12 03:59:07 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/12 04:22:17 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse_bonus.h"
+#include "utils_bonus.h"
+#include <fcntl.h>
 
 static void	init_map(t_map *map, char *line)
 {

@@ -6,10 +6,11 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:18:15 by nkim              #+#    #+#             */
-/*   Updated: 2022/07/12 04:04:32 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/12 04:22:21 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "error_bonus.h"
 #include "parse_bonus.h"
 
 void	valid_extension(char *fileName)
