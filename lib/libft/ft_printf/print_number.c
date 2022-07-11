@@ -6,7 +6,7 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/18 16:39:33 by nkim              #+#    #+#             */
-/*   Updated: 2021/09/25 10:50:21 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/11 16:28:52 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	print_un_hex(unsigned int arg, char type)
 		base = "0123456789ABCDEF";
 	else
 		base = "0123456789abcdef";
-	cnt = ft_putunnbr_hex(arg, base);
+	cnt = ft_putunnbr_hex(un, base);
 	return (cnt);
 }
 
