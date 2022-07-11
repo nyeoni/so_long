@@ -6,7 +6,7 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 22:18:35 by nkim              #+#    #+#             */
-/*   Updated: 2022/07/12 04:24:40 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/12 06:19:48 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	init_window(t_game *game)
 	game->move_status = NONE;
 	game->is_running = FALSE;
 	game->is_stop = FALSE;
-	game->status = ING;
+	game->status = NOTSTARTED;
 	game->offset = 0;
 	game->collect.collections = NULL;
 	game->enemy.enemies = NULL;
@@ -64,6 +64,9 @@ static void	init_imgs(t_game *game)
 	game->player.l_inital = game->player.l_sprites;
 	game->player.sprites = game->player.r_sprites;
 	game->player.initial = game->player.r_sprites;
+	game->screen.start = ft_make_xpm_screen(game, "start_screen.xpm");
+	game->screen.fail = ft_make_xpm_screen(game, "fail_screen.xpm");
+	game->screen.success = ft_make_xpm_screen(game, "success_screen.xpm");
 }
 
 void	init_game(t_game *game)
