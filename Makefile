@@ -6,7 +6,7 @@
 #    By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/20 17:00:14 by nkim              #+#    #+#              #
-#    Updated: 2022/07/12 06:41:51 by nkim             ###   ########.fr        #
+#    Updated: 2022/07/13 17:08:17 by nkim             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME					= so_long
 NAME_BONUS				= so_long_bonus
 
 CC						= cc
-CFLAGS					= -Wall -Werror -Wextra -g
+CFLAGS					= -Wall -Werror -Wextra
 AR						= ar rcs
 RM						= rm -rf
 
