@@ -6,7 +6,7 @@
 #    By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/20 17:00:14 by nkim              #+#    #+#              #
-#    Updated: 2022/07/12 06:41:51 by nkim             ###   ########.fr        #
+#    Updated: 2022/07/13 17:17:14 by nkim             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,7 +67,7 @@ SRCS_BONUS				= $(SRCS_DIR_BONUS)main_bonus.c \
 						$(PATH_DRAW_BONUS)draw_bonus.c $(PATH_DRAW_BONUS)draw_animate_bonus.c $(PATH_DRAW_BONUS)draw_screen_bonus.c \
 						$(PATH_DRAW_BONUS)draw_step_bonus.c $(PATH_DRAW_BONUS)draw_partial_bonus.c \
 						$(PATH_HOOK_BONUS)key_hook_bonus.c $(PATH_HOOK_BONUS)loop_hook_bonus.c \
-						$(PATH_HOOK_BONUS)handle_location.c $(PATH_HOOK_BONUS)handle_moving.c $(PATH_HOOK_BONUS)handle_player.c
+						$(PATH_HOOK_BONUS)handle_location_bonus.c $(PATH_HOOK_BONUS)handle_moving_bonus.c $(PATH_HOOK_BONUS)handle_player_bonus.c
 
 OBJS					= $(SRCS:.c=.o)
 OBJS_BONUS				= $(SRCS_BONUS:.c=.o)
