@@ -6,7 +6,7 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 03:49:59 by nkim              #+#    #+#             */
-/*   Updated: 2022/07/12 06:41:27 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/12 18:46:16 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@
 # define KEY_S 1
 # define KEY_D 2
 # define KEY_A 0
+# define KEY_RIGHT 123
+# define KEY_LEFT 124
+# define KEY_DOWN 125
+# define KEY_UP 126
 # define KEY_ESC 53
 # define KEY_SPACE 49
 # define KEY_ENTER 36
