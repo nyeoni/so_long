@@ -6,10 +6,10 @@
 #    By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/20 17:00:14 by nkim              #+#    #+#              #
+#    Updated: 2022/07/15 19:47:45 by nkim             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME					= so_long
 NAME_BONUS				= so_long_bonus
 
 CC						= cc
@@ -98,7 +98,8 @@ fclean : clean
 	@printf $(CUT)$(CUT)
 	@echo $(BOLD)$(L_PURPLE) ✨so_long✨ $(PINK)has been cleaned....🗑️$(RESET)
 
-re : fclean all
+re : fclean
+	@make all
 
 bonus : $(NAME_BONUS)
 
@@ -109,7 +110,8 @@ $(NAME_BONUS) : $(OBJS_BONUS)
 	@printf $(CUT)$(CUT)
 	@echo $(BOLD)$(L_PURPLE) ✨so_long_bonus✨ $(GREEN)is ready 🎉 $(RESET)
 
-bonus_re : fclean bonus
+bonus_re : fclean
+	@make bonus
 
 test :
 	@make -C $(LIBFT42_DIR)
