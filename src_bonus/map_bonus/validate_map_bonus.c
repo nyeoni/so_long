@@ -6,7 +6,7 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:18:15 by nkim              #+#    #+#             */
-/*   Updated: 2022/07/12 04:36:56 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/15 18:58:47 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	valid_extension(char *fileName)
 	int		diff;
 
 	extension = ft_strrchr(fileName, '.');
+	if (!extension)
+		throw_error("ExtensionError : file extension is not .ber file!");
 	diff = ft_strncmp(extension, ".ber", 4);
 	if (diff)
 		throw_error("ExtensionError : file extension is not .ber file!");
