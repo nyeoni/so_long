@@ -6,7 +6,7 @@
 /*   By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 22:18:35 by nkim              #+#    #+#             */
-/*   Updated: 2022/07/12 06:19:48 by nkim             ###   ########.fr       */
+/*   Updated: 2022/07/15 19:44:05 by nkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ static void	init_window(t_game *game)
 	game->mlx_ptr = mlx_init();
 	game->win_ptr = mlx_new_window(game->mlx_ptr, TILE_SIZE * x, TILE_SIZE * y,
 			"KIRBY");
+}
+
+void	init_props(t_game *game)
+{
 	game->move_status = NONE;
 	game->is_running = FALSE;
 	game->is_stop = FALSE;
@@ -72,6 +76,7 @@ static void	init_imgs(t_game *game)
 void	init_game(t_game *game)
 {
 	init_window(game);
+	init_props(game);
 	init_sprites(game);
 	init_imgs(game);
 }
