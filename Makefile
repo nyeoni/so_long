@@ -6,10 +6,11 @@
 #    By: nkim <nkim@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/20 17:00:14 by nkim              #+#    #+#              #
-#    Updated: 2022/07/15 19:47:45 by nkim             ###   ########.fr        #
+#    Updated: 2022/07/18 14:26:00 by nkim             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+NAME_					= so_long
 NAME_BONUS				= so_long_bonus
 
 CC						= cc
